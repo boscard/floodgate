@@ -1,5 +1,5 @@
 language: java
-os: bionic
+dist: bionic
 jdk: openjdk11
 script:
   - sudo mkdir /floodgate
