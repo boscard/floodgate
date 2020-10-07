@@ -254,7 +254,7 @@ jobs:
             echo "Print version using version command"
             /floodgate/bin/floodgate version
             echo "Compare changes - clean Spinnaker"
-            (/floodgate/bin/floodgate << parameters.floodgate_extra_params >> --config ~/floodgate.yaml compare && exit 1 || echo "Found changes" ) | grep FATA && exit 1 || exit 0
+            (/floodgate/bin/floodgate << parameters.floodgate_extra_params >> --config ~/floodgate.yaml compare && exit 1 || echo "Found changes" ) 2>&1 | grep FATA && exit 1 || exit 0
             echo "Apply local resources"
             /floodgate/bin/floodgate << parameters.floodgate_extra_params >> --config ~/floodgate.yaml sync
             echo "Compare changes - synced resources"
